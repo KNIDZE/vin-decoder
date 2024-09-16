@@ -1,0 +1,84 @@
+@import '../../common/constants/styleconstants.scss';
+.vin-form{
+    height: clamp(30px, 10%, 70px);
+    width: 50%;
+    margin: 3% 0  3% 0;
+    z-index: 2;
+    border-radius: 20px;
+    position: relative;
+    input, button{
+        margin: 0;
+        outline: none;
+        border: none;
+        font-family: $main-font;
+        font-size: $important-size;
+    }
+    input{
+        border-radius: 20px 0 0  20px;
+        padding: 10px 20px;
+        min-width: calc(80% - 20px * 2);
+        height: calc(100% - 20px);
+        
+    }
+    button{
+        height: calc(100%);
+        min-width: 20%;
+        border-radius: 0 20px 20px 0;
+        padding: 10px 0;
+        background-color: white;
+        color: $main-color;
+        transition: $transition-duration;
+        
+        cursor: pointer;
+        &:hover{
+            background-color: $main-color;
+            color: $secondary-color;
+            
+        }
+        
+    }
+    p{  
+        font-size: $regular-size;
+        position: absolute;
+        bottom: -35px;
+        color: white;
+        padding-left: 3%;
+        
+    }
+    .searching-list{
+        //border: 2px solid $main-color;
+        box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.75);
+        border-radius: 20px;
+        margin-top: 10px;
+        width: 100%;
+        position: absolute;
+        font-size: $regular-size;
+        .searching-option{
+            transition-duration: $transition-duration;
+            width: calc(100% - 20px * 2);
+            background-color: white;
+            padding: 20px 20px;
+            &:first-child{
+                border-radius: 20px 20px 0 0;
+
+            }
+            &:last-child{
+                border-radius: 0 0 20px 20px;
+
+            }
+            &:hover{
+                background-color: $highlighted-color;
+                cursor: pointer;
+            }
+        }
+    }
+    @media screen and (max-width: $medium-screen-size) {
+        width: 70%;
+        
+    }
+    @media screen and (max-width: $xsmall-screen-size) {
+        margin-top: 30px;
+        width: 80%;
+        
+    }
+}

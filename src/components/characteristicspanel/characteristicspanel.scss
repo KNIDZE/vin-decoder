@@ -1,0 +1,60 @@
+@import './../../common/constants/styleconstants.scss';
+
+.panel{
+    width: 70%;
+    height: 70vh;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 0 10px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:5%;
+    &::-webkit-scrollbar {
+        background: transparent;
+        height: 3px;
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 0.25rem;
+        background: $main-color;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    h3{
+        width: 100%;
+        text-align: center;
+        color: white;
+        opacity: 0.7;
+    
+    }
+    @media screen and (max-width: $medium-screen-size) {
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+        height: fit-content;
+        scrollbar: none;
+        height: auto;
+        min-height: 50%;
+        gap: 20px;
+        
+    }
+    @media screen and (max-width: $small-screen-size) {
+        grid-template-columns: repeat(1, 1fr);
+        width: 60%;
+        
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    @media screen and (max-width: $xsmall-screen-size) {
+        width: 80%;
+        
+    }
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

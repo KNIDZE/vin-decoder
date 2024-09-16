@@ -1,0 +1,20 @@
+@import '../../common/constants/styleconstants.scss';
+
+
+
+.homepage{
+    min-height: 100vh;
+    background: $background-image;
+    background-size: cover;
+    font-family: $main-font;
+    
+
+    main{ 
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        //justify-content: space-around;
+        padding-bottom: 15px;
+        min-height: 70vh;
+    }
+}

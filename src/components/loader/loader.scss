@@ -1,0 +1,11 @@
+@import '../../common/constants/styleconstants.scss';
+@keyframes l1 {to{transform: rotate(.5turn)}}
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: white #0000;
+    animation: l1 1s infinite;
+    margin: 0 auto 0 auto;
+  }

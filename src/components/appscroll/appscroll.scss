@@ -1,0 +1,11 @@
+@import './../../common/constants/styleconstants.scss';
+
+
+.scroll-element{
+    position: absolute;
+    height: 10%;
+    width: 4px;
+    border-radius: 2px;
+    background-color: $main-color;
+    right: 6px;
+}
