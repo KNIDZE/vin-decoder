@@ -21,7 +21,11 @@ const CharacteristicsPanel = () => {
   const { isDataLoading, variables, errorMessage, apiMessage } =
     useAppSelector(selectVinState);
 
-  let panelCondition = choosePanelState(isDataLoading, errorMessage, variables.length);
+  let panelCondition = choosePanelState(
+    isDataLoading,
+    errorMessage,
+    variables.length
+  );
 
   const panelStyle = `panel ${panelCondition !== "full" ? "flex-center-panel" : ""}`;
   const renderSwitch = () => {

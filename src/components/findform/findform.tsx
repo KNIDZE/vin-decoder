@@ -8,19 +8,17 @@ import {
   processSearchingQueue,
   validateForm,
 } from "./formfunctions";
-import { clearApiMessage } from "../../store/vanslise";
 
 const FindForm = () => {
   const [isHistoryActive, setHistoryActive] = useState(false);
   const [searchingHistory, setSearchingHistory] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
-  // need it because
+  // need it because when click on option toggle function is called first and so onclick event is not fired
   const [hoverValue, setHoverValue] = useState("");
   const [formError, setFormError] = useState("");
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-
     setSearchingHistory(getSearchingHistory());
   }, []);
 

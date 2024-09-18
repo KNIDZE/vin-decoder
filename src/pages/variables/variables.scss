@@ -1,41 +1,46 @@
 @import '../../common/constants/styleconstants.scss';
 
-.variables-page{
+.variables-page {
     min-height: 100vh;
     font-family: $main-font;
-    main{
+
+    main {
         //height: 80vh;
         padding: 30px;
         display: flex;
         justify-content: center;
         max-height: 80;
 
-        a{
+        a {
             text-decoration: none;
             color: initial;
         }
-        
-        .variables-container{
+
+        .variables-container {
             display: grid;
-            grid-template-columns: repeat(3 , 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: auto;
             gap: 20px;
             width: 70%;
             height: 80vh;
             overflow: auto;
             padding: 0 10px;
+
             &::-webkit-scrollbar {
                 background: transparent;
                 height: 3px;
                 width: 8px;
             }
+
             &::-webkit-scrollbar-thumb {
                 border-radius: 0.25rem;
                 background: $main-color;
             }
+
             &::-webkit-scrollbar-track {
                 background: transparent;
             }
+
             @media screen and (max-width: $medium-screen-size) {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: none;
@@ -45,30 +50,36 @@
                 height: auto;
                 min-height: 50%;
                 gap: 20px;
-                h2{
+
+                h2 {
                     grid-column-start: 1;
                     grid-column-end: 3;
                 }
-                
+
             }
+
             @media screen and (max-width: $small-screen-size) {
                 grid-template-columns: 1fr;
                 width: 60%;
                 grid-template-rows: none;
-                &::-webkit-scrollbar{
+
+                &::-webkit-scrollbar {
                     display: none;
                 }
-                h2{
+
+                h2 {
                     grid-column-start: 1;
                     grid-column-end: 2;
                 }
             }
+
             @media screen and (max-width: $xsmall-screen-size) {
                 width: 100%;
-                
+
             }
         }
-        .flex-center-panel{
+
+        .flex-center-panel {
             display: flex;
             justify-content: space-around;
             align-items: center;

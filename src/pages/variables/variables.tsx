@@ -23,12 +23,12 @@ const Variables = (): ReactElement => {
       case "full":
         return variables.map((variable) => (
           <Link to={`/variables/${variable.ID}`}>
-          <VariableInfoCard
-            key={variable.ID}
-            title={variable.Name}
-            description={variable.Description}
-            id={variable.ID}
-          />
+            <VariableInfoCard
+              key={variable.ID}
+              title={variable.Name}
+              description={variable.Description}
+              id={variable.ID}
+            />
           </Link>
         ));
       case "error":

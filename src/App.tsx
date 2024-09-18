@@ -3,19 +3,20 @@ import Home from "./pages/home/home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Variables from "./pages/variables/variables";
 import Variable from "./pages/singlevariable/variable";
-import './App.scss';
+import "./App.scss";
+import { Constants } from "./common/constants/constants";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: Constants.HOME_PAGE_PATH as string,
     element: <Home />,
   },
   {
-    path: "variables",
+    path: Constants.VARIABLES_LIST_PAGE_PATH as string,
     element: <Variables />,
   },
   {
-    path: "/variables/:variableId",
+    path: Constants.SINGLE_VARIABLE_PATH as string,
     element: <Variable />,
   },
 ]);

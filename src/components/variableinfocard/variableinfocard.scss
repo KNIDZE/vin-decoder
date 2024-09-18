@@ -1,9 +1,10 @@
 @import './../../common/constants/styleconstants.scss';
-$card-height: 22vh;
-.variable-info-card{
-    background-color: white;
+
+
+.variable-info-card {
+    background-color: $light-color;
     height: $card-height;
-    border-radius: 20px;
+    border-radius: $border-radius;
     padding: 10px 15px;
     transition-duration: $transition-duration;
     position: relative;
@@ -11,11 +12,14 @@ $card-height: 22vh;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    h5, p{
+
+    h5,
+    p {
         text-align: center;
         margin: 0;
     }
-    h5{
+
+    h5 {
         position: absolute;
         top: 10%;
         color: $main-color;
@@ -24,31 +28,34 @@ $card-height: 22vh;
         justify-self: start;
         max-width: 70%;
     }
-  
-    .description-container{
+
+    .description-container {
         max-width: 80%;
         max-height: 80%;
-        p{
+
+        p {
             font-weight: bold;
             font-size: 16px;
             max-width: 100%;
             max-height: 100%;
             font-size: $regular-size;
         }
-        
+
     }
-    &:hover{
+
+    &:hover {
         background-color: $main-color;
         transition-duration: $transition-duration;
-        h5{
-            color: black;
+
+        h5 {
+            color: $secondary-color;
         }
-        .description-container{
-            
-        }
-        p{
-            color: white;
-            
+
+        .description-container {}
+
+        p {
+            color: $light-color;
+
         }
     }
 }

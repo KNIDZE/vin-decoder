@@ -3,16 +3,22 @@
 $main-color: #F6272B;
 $secondary-color: #0A0508;
 $highlighted-color: rgb(238, 238, 238);
+$light-color: white;
 $transluent-light-color: rgba(255, 255, 255, 0.7);
+$blur: blur(15px);
 // fonts
 $main-font: "Plus Jakarta Sans", sans-serif;
 
 //images
 $background-image: url('../../common/assets/background.jpg');
 
+//border
+$border-radius: 20px;
 //time
 $transition-duration: 0.2s;
 
+//card
+$card-height: 22vh;
 
 // responsive
 $large-screen-size: 1300px;
@@ -25,7 +31,7 @@ $important-size: clamp(14px, 1.5vw, 18px);
 $regular-size: clamp(10px, 1.3vw, 14px);
 
 
-.flex-center-panel{
+.flex-center-panel {
     display: flex;
     justify-content: space-around;
     align-items: center;

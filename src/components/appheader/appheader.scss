@@ -1,68 +1,79 @@
 @import '../../common/constants/styleconstants.scss';
 
-header{
-    background-color: white;
+header {
+    background-color: $light-color;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
-    a{
+
+    a {
         text-decoration: none;
         color: initial;
     }
-    h1{
+
+    h1 {
         font-size: $header-size;
         text-transform: uppercase;
         margin: 0;
         transition-duration: $transition-duration;
-        &:hover{
+
+        &:hover {
             color: $main-color;
             cursor: pointer;
         }
     }
 
-    nav{
+    nav {
         height: 100%;
         display: flex;
-        a{
+
+        a {
             height: 100%;
             text-transform: uppercase;
             padding: 10px 25px;
             margin: 10px 0;
             transition-duration: $transition-duration;
             font-size: $important-size;
-            &:hover{
+
+            &:hover {
                 background-color: $secondary-color;
                 color: $main-color;
                 cursor: pointer;
             }
-            &:first-child{
-                border-radius: 20px 0 0 20px;
+
+            &:first-child {
+                border-radius: $border-radius 0 0 $border-radius;
             }
-            &:last-child{
-                border-radius: 0 20px 20px 0 ;
+
+            &:last-child {
+                border-radius: 0 $border-radius $border-radius 0;
             }
         }
     }
 
     @media screen and (max-width: $xsmall-screen-size) {
         flex-direction: column;
-        h1{
+
+        h1 {
             margin-top: 15px;
         }
-        nav{
+
+        nav {
             flex-direction: column;
             text-align: center;
             width: 70%;
-            a{
-                
-                &:first-child{
-                    border-radius: 20px;
+
+            a {
+
+                &:first-child {
+                    border-radius: $border-radius;
                 }
-                &:last-child{
-                    border-radius: 20px;
+
+                &:last-child {
+                    border-radius: $border-radius;
                 }
-                
+
             }
         }
     }

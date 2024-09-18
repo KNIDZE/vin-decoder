@@ -8,8 +8,8 @@ const AppHeader = () => {
         <h1>Vin-decoder</h1>
       </Link>
       <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/variables'>Variables</Link>
+        <Link to="/">Home</Link>
+        <Link to="/variables">Variables</Link>
       </nav>
     </header>
   );

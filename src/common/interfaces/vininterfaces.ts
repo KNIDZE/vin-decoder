@@ -12,23 +12,22 @@ export interface DecoderResponseData {
 export interface VinResponseObject {
   data: {
     Results: VinVariable[];
-    Message: string
+    Message: string;
   };
 }
-export interface VariableData{
+export interface VariableData {
   DataType: string;
   Description: string;
   ID: number;
   Name: string;
   GroupName: string;
 }
-export interface VariablesResponseObject{
-  data:{
-    Results: VariableData[]
-  }
-
+export interface VariablesResponseObject {
+  data: {
+    Results: VariableData[];
+  };
 }
-export interface CardProps{
+export interface CardProps {
   title: string;
   description: string;
   id: string | number;

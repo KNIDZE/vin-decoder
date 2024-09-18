@@ -1,10 +1,11 @@
 @import './../../common/constants/styleconstants.scss';
 $card-height: calc(21vh - 45px);
-.variable-card{
-    background-color: white;
+
+.variable-card {
+    background-color: $light-color;
     min-height: $card-height;
     height: $card-height;
-    border-radius: 20px;
+    border-radius: $border-radius;
     padding: 30px 15px 10px 15px;
     transition-duration: $transition-duration;
     position: relative;
@@ -12,11 +13,14 @@ $card-height: calc(21vh - 45px);
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    h5, p{
+
+    h5,
+    p {
         text-align: center;
         margin: 0;
     }
-    h5{
+
+    h5 {
         position: absolute;
         top: 10px;
         color: $main-color;
@@ -25,7 +29,8 @@ $card-height: calc(21vh - 45px);
         justify-self: start;
         max-width: 70%;
     }
-    p{
+
+    p {
         font-weight: bold;
         font-size: 16px;
         max-width: 80%;
@@ -33,15 +38,17 @@ $card-height: calc(21vh - 45px);
         font-size: $regular-size;
     }
 
-    &:hover{
+    &:hover {
         height: fit-content;
         background-color: $main-color;
         transition-duration: $transition-duration;
-        h5{
-            color: black;
+
+        h5 {
+            color: $secondary-color;
         }
-        p{
-            color: white;
+
+        p {
+            color: $light-color;
             height: 100%;
         }
     }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./variablecard.scss";
 import { Constants } from "../../common/constants/constants";
-interface CardProps{
+interface CardProps {
   title: string;
   description: string;
   id: string | number;

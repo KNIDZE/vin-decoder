@@ -1,40 +1,45 @@
 @import './../../common/constants/styleconstants.scss';
 
-.panel{
+.panel {
     width: 70%;
     height: 70vh;
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
+    backdrop-filter: $blur;
+    border-radius: $border-radius;
     padding: 0 10px;
     overflow: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100px auto; 
-    gap:5%;
+    grid-template-rows: 100px auto;
+    gap: 5%;
+
     &::-webkit-scrollbar {
         background: transparent;
         height: 3px;
         width: 8px;
     }
+
     &::-webkit-scrollbar-thumb {
         border-radius: 0.25rem;
         background: $main-color;
     }
+
     &::-webkit-scrollbar-track {
         background: transparent;
     }
-    h3{
+
+    h3 {
         width: 100%;
         text-align: center;
-        color: white;
+        color: $light-color;
         opacity: 0.7;
-       
-    
+
+
     }
-    h2{
+
+    h2 {
         color: $secondary-color;
-        background-color: white;
-        border-radius: 15px 20px;
+        background-color: $light-color;
+        border-radius: $border-radius;
         grid-column-start: 1;
         grid-column-end: 4;
         font-size: $regular-size;
@@ -42,9 +47,11 @@
         margin: 0;
         height: fit-content;
     }
+
     .error-message {
         color: $main-color;
     }
+
     @media screen and (max-width: $medium-screen-size) {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: none;
@@ -54,27 +61,31 @@
         height: auto;
         min-height: 50%;
         gap: 20px;
-        h2{
+
+        h2 {
             grid-column-start: 1;
             grid-column-end: 3;
         }
-        
+
     }
+
     @media screen and (max-width: $small-screen-size) {
         grid-template-columns: 1fr;
         width: 60%;
         grid-template-rows: none;
-        &::-webkit-scrollbar{
+
+        &::-webkit-scrollbar {
             display: none;
         }
-        h2{
+
+        h2 {
             grid-column-start: 1;
             grid-column-end: 2;
         }
     }
+
     @media screen and (max-width: $xsmall-screen-size) {
         width: 80%;
-        
+
     }
 }
-
