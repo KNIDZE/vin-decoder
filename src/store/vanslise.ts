@@ -1,29 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { DecoderResponseData } from "../common/interfaces/vininterfaces";
+import { DecoderResponseData, VariableData } from "../common/interfaces/vininterfaces";
 
-interface VinValuesState {
-  variables: DecoderResponseData;
+interface VinValuesState extends DecoderResponseData{
   isDataLoading: boolean;
+  errorMessage: string;
+  variablesInfo: VariableData[];
 }
 
 const initialState: VinValuesState = {
   variables: [],
   isDataLoading: false,
+  errorMessage: "",
+  apiMessage: "",
+  variablesInfo: []
 };
 
 export const vinValuesSlise = createSlice({
   name: "vinValue",
   initialState,
   reducers: {
-    setVariables: (state, action: PayloadAction<DecoderResponseData>) => {
-      state.variables = action.payload;
+    setVariablesValues: (state, action: PayloadAction<DecoderResponseData>) => {
+      state.variables = action.payload.variables;
+      state.apiMessage = action.payload.apiMessage;
     },
     toggleDataLoading: (state) => {
       state.isDataLoading = !state.isDataLoading;
     },
+    setError: (state, action : PayloadAction<string>) => {
+      state.errorMessage = action.payload
+    },
+    setVariablesInfo: (state, action : PayloadAction<VariableData[]>) =>{
+      state.variablesInfo = action.payload;
+    }
   },
 });
 
-export const { setVariables, toggleDataLoading } = vinValuesSlise.actions;
+export const { setVariablesValues, toggleDataLoading, setError, setVariablesInfo } = vinValuesSlise.actions;
 export default vinValuesSlise.reducer;

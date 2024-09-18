@@ -1,0 +1,71 @@
+@import '../../common/constants/styleconstants.scss';
+
+.variables-page{
+    min-height: 100vh;
+    font-family: $main-font;
+    main{
+        //height: 80vh;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        max-height: 80;
+
+        a{
+            text-decoration: none;
+            color: initial;
+        }
+        .variables-container{
+            display: grid;
+            grid-template-columns: repeat(3 , 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            width: 70%;
+            height: 80vh;
+            overflow: auto;
+            padding: 0 10px;
+            &::-webkit-scrollbar {
+                background: transparent;
+                height: 3px;
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 0.25rem;
+                background: $main-color;
+            }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            @media screen and (max-width: $medium-screen-size) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: none;
+
+                height: fit-content;
+                scrollbar: none;
+                height: auto;
+                min-height: 50%;
+                gap: 20px;
+                h2{
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
+                
+            }
+            @media screen and (max-width: $small-screen-size) {
+                grid-template-columns: 1fr;
+                width: 60%;
+                grid-template-rows: none;
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+                h2{
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+            }
+            @media screen and (max-width: $xsmall-screen-size) {
+                width: 100%;
+                
+            }
+        }
+    }
+}

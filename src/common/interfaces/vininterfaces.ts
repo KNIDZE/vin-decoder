@@ -4,10 +4,31 @@ export interface VinVariable {
   VariableId: string;
 }
 
-export interface DecoderResponseData extends Array<VinVariable> {}
+export interface DecoderResponseData {
+  variables: VinVariable[];
+  apiMessage: string;
+}
 
-export interface ResponseObject {
+export interface VinResponseObject {
   data: {
-    Results: DecoderResponseData;
+    Results: VinVariable[];
+    Message: string
   };
+}
+export interface VariableData{
+  DataType: string;
+  Description: string;
+  ID: number;
+  Name: string;
+}
+export interface VariablesResponseObject{
+  data:{
+    Results: VariableData[]
+  }
+
+}
+export interface CardProps{
+  title: string;
+  description: string;
+  id: string | number;
 }

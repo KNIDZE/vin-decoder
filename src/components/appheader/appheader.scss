@@ -6,6 +6,10 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
+    a{
+        text-decoration: none;
+        color: initial;
+    }
     h1{
         font-size: $header-size;
         text-transform: uppercase;
@@ -21,8 +25,6 @@ header{
         height: 100%;
         display: flex;
         a{
-            color: initial;
-            text-decoration: none;
             height: 100%;
             text-transform: uppercase;
             padding: 10px 25px;
@@ -51,9 +53,16 @@ header{
         nav{
             flex-direction: column;
             text-align: center;
-
+            width: 70%;
             a{
-                border-radius: 20px;
+                
+                &:first-child{
+                    border-radius: 20px;
+                }
+                &:last-child{
+                    border-radius: 20px;
+                }
+                
             }
         }
     }

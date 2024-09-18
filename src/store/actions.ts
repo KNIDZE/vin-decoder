@@ -1,7 +1,11 @@
-import { setVariables, toggleDataLoading } from "./vanslise";
+import { setError, setVariablesInfo, setVariablesValues, toggleDataLoading } from "./vanslise";
 import api from "../api/api";
 import { AppDispatch, RootState } from "./store";
-import { ResponseObject } from "../common/interfaces/vininterfaces";
+import {
+  VariablesResponseObject,
+  VinResponseObject,
+} from "../common/interfaces/vininterfaces";
+import axios from "axios";
 
 const filterVariablesData = (value: string) => {
   return value !== "" && value !== null && value !== "Not Applicable";
@@ -9,14 +13,47 @@ const filterVariablesData = (value: string) => {
 export const fetchVinVariables =
   (vinCode: string) => async (dispatch: AppDispatch) => {
     dispatch(toggleDataLoading());
-    const response: ResponseObject = await api.get(
-      `vehicles/decodevin/${vinCode}?format=json`
-    );
-    let filteredVariables = response.data.Results.filter((elem) =>
-      filterVariablesData(elem.Value)
-    );
+    let errorMessage = "";
+    try {
+      const response: VinResponseObject = await api.get(
+        `vehicles/decodevin/${vinCode}?format=json`
+      );
+      let filteredVariables = response.data.Results.filter((elem) =>
+        filterVariablesData(elem.Value)
+      );
+      dispatch(
+        setVariablesValues({
+          variables: filteredVariables,
+          apiMessage: response.data.Message,
+        })
+      );
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        errorMessage = err.message || "Something went wrong";
+      }
+    }
+    dispatch(setError(errorMessage));
     dispatch(toggleDataLoading());
-    dispatch(setVariables(filteredVariables));
   };
 
+export const fetchVariablesList = () => async (dispatch: AppDispatch) => {
+  dispatch(toggleDataLoading());
+  let errorMessage = "";
+  try {
+    const response: VariablesResponseObject = await api.get(
+      `vehicles/getvehiclevariablelist?format=json`
+    );
+    dispatch(
+      setVariablesInfo(response.data.Results)
+    );
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      errorMessage = err.message || "Something went wrong";
+    }
+  }
+  dispatch(setError(errorMessage));
+  dispatch(toggleDataLoading());
+};
+
 export const selectVinState = (state: RootState) => state.vinValue;
+export const selectVariablesInfo = (state: RootState) => {return {variables: state.vinValue.variablesInfo, errorMessage: state.vinValue.errorMessage}};

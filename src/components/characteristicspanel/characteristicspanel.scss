@@ -9,6 +9,7 @@
     overflow: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px auto; 
     gap:5%;
     &::-webkit-scrollbar {
         background: transparent;
@@ -27,24 +28,48 @@
         text-align: center;
         color: white;
         opacity: 0.7;
+       
     
+    }
+    h2{
+        color: $secondary-color;
+        background-color: white;
+        border-radius: 15px 20px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        font-size: $regular-size;
+        padding: 20px;
+        margin: 0;
+        height: fit-content;
+    }
+    .error-message {
+        color: $main-color;
     }
     @media screen and (max-width: $medium-screen-size) {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
         width: 80%;
         height: fit-content;
         scrollbar: none;
         height: auto;
         min-height: 50%;
         gap: 20px;
+        h2{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
         
     }
     @media screen and (max-width: $small-screen-size) {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
         width: 60%;
-        
+        grid-template-rows: none;
         &::-webkit-scrollbar{
             display: none;
+        }
+        h2{
+            grid-column-start: 1;
+            grid-column-end: 2;
         }
     }
     @media screen and (max-width: $xsmall-screen-size) {
@@ -53,8 +78,3 @@
     }
 }
 
-.flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
