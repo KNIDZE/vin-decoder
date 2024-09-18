@@ -68,12 +68,13 @@ class ForbiddenSymbolsTest extends ValideTest {
 export const validateForm = (value: string): string => {
   let result = "";
   const tests = [
-    new LengthTest(),
-    new ForbiddenSymbolsTest(),
     new EmptinessTest(),
+    new ForbiddenSymbolsTest(),
+    new LengthTest(),
   ];
   tests.forEach((test) => {
     if (!test.validate(value)) {
+      console.log(test.getErrorMessage())
       result = test.getErrorMessage();
       return;
     }
