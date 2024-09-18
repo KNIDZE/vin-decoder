@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useMemo } from "react";
 import AppHeader from "../../components/appheader/appheader";
 import "./variables.scss";
 import { useSelector } from "react-redux";
@@ -14,17 +14,23 @@ const Variables = (): ReactElement => {
     dispatch(fetchVariablesList());
   }, [dispatch]);
   const { variables, errorMessage } = useSelector(selectVariablesInfo);
-  const containerCondition =
-    variables.length > 0 ? "full" : errorMessage === "" ? "loading" : "error";
-  const renderSwitch = () => {
+
+  const containerCondition = useMemo(() => {
+    return variables.length > 0
+      ? "full"
+      : errorMessage === ""
+      ? "loading"
+      : "error";
+  }, [variables.length, errorMessage]);
+
+  const renderSwitch = useMemo(() => {
     switch (containerCondition) {
       case "loading":
         return <Loader />;
       case "full":
         return variables.map((variable) => (
-          <Link to={`/variables/${variable.ID}`}>
+          <Link key={variable.ID} to={`/variables/${variable.ID}`}>
             <VariableInfoCard
-              key={variable.ID}
               title={variable.Name}
               description={variable.Description}
               id={variable.ID}
@@ -36,7 +42,7 @@ const Variables = (): ReactElement => {
       default:
         return <h3>Time to decode VIN...</h3>;
     }
-  };
+  }, [variables, containerCondition, errorMessage]);
   return (
     <div className="variables-page">
       <AppHeader />
@@ -44,7 +50,7 @@ const Variables = (): ReactElement => {
         <div
           className={`variables-container ${containerCondition !== "full" ? "flex-center-panel" : ""}`}
         >
-          {renderSwitch()}
+          {renderSwitch}
         </div>
       </main>
     </div>

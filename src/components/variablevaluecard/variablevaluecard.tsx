@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./variablecard.scss";
 import { Constants } from "../../common/constants/constants";
 interface CardProps {
@@ -15,10 +15,10 @@ const VariableValueCard = (props: CardProps) => {
   const toggleMouseOver = () => {
     setMousedOver((prevState) => !prevState);
   };
-  const extendedView =
+  const extendedView = useMemo(()=>
     description.length < Constants.MAX_SYMBOLS_ON_CARD
       ? description
-      : description.slice(0, Constants.MAX_SYMBOLS_ON_CARD) + "...";
+      : description.slice(0, Constants.MAX_SYMBOLS_ON_CARD) + "...", [description]);
   return (
     <div
       key={id}

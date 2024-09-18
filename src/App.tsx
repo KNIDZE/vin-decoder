@@ -5,6 +5,8 @@ import Variables from "./pages/variables/variables";
 import Variable from "./pages/singlevariable/variable";
 import "./App.scss";
 import { Constants } from "./common/constants/constants";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import AppHead from "./components/appHead/apphead";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +25,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
+      <HelmetProvider>
+        <AppHead />
       <RouterProvider router={router} />
+      </HelmetProvider>
     </div>
   );
 }

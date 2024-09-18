@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import "./findform.scss";
 import { fetchVinVariables } from "../../store/actions";
 import { useDispatch } from "react-redux";
@@ -14,7 +14,6 @@ const FindForm = () => {
   const [searchingHistory, setSearchingHistory] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
   // need it because when click on option toggle function is called first and so onclick event is not fired
-  const [hoverValue, setHoverValue] = useState("");
   const [formError, setFormError] = useState("");
   const dispatch: AppDispatch = useDispatch();
 
@@ -22,18 +21,13 @@ const FindForm = () => {
     setSearchingHistory(getSearchingHistory());
   }, []);
 
-  const toggleHistory = () => {
+  const toggleHistory = useCallback(() => {
     setHistoryActive((prevState) => !prevState);
-    if (hoverValue !== "") {
-      setInputValue(hoverValue);
-    }
-  };
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  }, []);
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
-    // fixed a bug, when typing text without leaving input field
-    setHoverValue("");
-  };
-  const handleSeachingClick = (e: React.FormEvent) => {
+  }, []);
+  const handleSeachingClick = useCallback((e: React.FormEvent) => {
     e.preventDefault();
 
     const errorMessage = validateForm(inputValue);
@@ -42,7 +36,7 @@ const FindForm = () => {
       setSearchingHistory(processSearchingQueue(searchingHistory, inputValue));
     }
     setFormError(errorMessage);
-  };
+  }, [dispatch, inputValue, searchingHistory]);
 
   return (
     <form className="vin-form" onSubmit={(e) => handleSeachingClick(e)}>
@@ -59,8 +53,7 @@ const FindForm = () => {
             <div
               key={searching}
               className="searching-option"
-              onMouseEnter={() => setHoverValue(searching)}
-              onMouseLeave={() => setHoverValue("")}
+              onMouseDown={() => setInputValue(searching)}
             >
               {searching}
             </div>
