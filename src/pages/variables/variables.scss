@@ -14,6 +14,7 @@
             text-decoration: none;
             color: initial;
         }
+        
         .variables-container{
             display: grid;
             grid-template-columns: repeat(3 , 1fr);
@@ -66,6 +67,13 @@
                 width: 100%;
                 
             }
+        }
+        .flex-center-panel{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 60vh;
         }
     }
 }

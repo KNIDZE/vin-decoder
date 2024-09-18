@@ -32,9 +32,12 @@ export const vinValuesSlise = createSlice({
     },
     setVariablesInfo: (state, action : PayloadAction<VariableData[]>) =>{
       state.variablesInfo = action.payload;
+    },
+    clearApiMessage: (state) =>{
+      state.apiMessage = "";
     }
   },
 });
 
-export const { setVariablesValues, toggleDataLoading, setError, setVariablesInfo } = vinValuesSlise.actions;
+export const { setVariablesValues, toggleDataLoading, setError, setVariablesInfo, clearApiMessage } = vinValuesSlise.actions;
 export default vinValuesSlise.reducer;

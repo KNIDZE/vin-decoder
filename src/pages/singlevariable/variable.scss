@@ -1,0 +1,75 @@
+@import '../../common/constants/styleconstants.scss';
+
+.variable-page{
+    position: relative;
+    min-height: 100vh;
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .information-container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            background-color: $transluent-light-color;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            .inner-container{
+                font-family: $main-font;
+                width: 65vw;
+                height: 65vh;
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                overflow: auto;
+                font-size: $regular-size;
+                &::-webkit-scrollbar {
+                    background: transparent;
+                    height: 3px;
+                    width: 8px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 0.25rem;
+                    background: $main-color;
+                }
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                span{
+                    @media screen and (max-width: $small-screen-size) {
+                        margin-top: 5px;
+                        display: block;
+                    }
+                }
+                p, span{
+                    color: $secondary-color
+                }
+                h5{
+                    font-size: $important-size;
+                    margin: 0;
+                    margin-top: 50px;
+                }
+                h2{
+
+                    color: $main-color;
+                    font-size: $header-size;
+                }
+
+                @media screen and (max-width: $xsmall-screen-size) {
+                    height: fit-content;
+                    
+                }
+            }
+
+            @media screen and (max-width: $xsmall-screen-size) {
+                margin-top: 20px;
+                position: relative;
+                transform: none;
+                left: 0
+            }
+        }
+    }
+}

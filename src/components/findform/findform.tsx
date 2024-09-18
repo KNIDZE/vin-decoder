@@ -8,6 +8,7 @@ import {
   processSearchingQueue,
   validateForm,
 } from "./formfunctions";
+import { clearApiMessage } from "../../store/vanslise";
 
 const FindForm = () => {
   const [isHistoryActive, setHistoryActive] = useState(false);
@@ -19,6 +20,7 @@ const FindForm = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
+
     setSearchingHistory(getSearchingHistory());
   }, []);
 

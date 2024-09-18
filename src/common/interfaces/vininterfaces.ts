@@ -20,6 +20,7 @@ export interface VariableData{
   Description: string;
   ID: number;
   Name: string;
+  GroupName: string;
 }
 export interface VariablesResponseObject{
   data:{
