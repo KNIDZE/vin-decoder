@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-[Link here :)](https://vindecoder-knidzes-projects.vercel.app/)
+[Link here :)](https://vin-decoder-five.vercel.app/)
   
   
 <h2>🧐 Features</h2>
